@@ -3,24 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>X-Team Talent Optimization Project | PI HIRE Collective</title>
+  <title>X-Team Talent Optimization Project | PI Collective</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --navy-900: #0a1628;
-      --navy-800: #132039;
-      --navy-700: #1a365d;
-      --navy-600: #2d5a87;
+      --charcoal-900: #0d0d0d;
+      --charcoal-800: #1a1a1a;
+      --charcoal-700: #2d2d2d;
+      --charcoal-600: #404040;
       --slate-100: #f1f5f9;
       --slate-200: #e2e8f0;
       --slate-300: #cbd5e1;
-      --slate-400: #94a3b8;
+      --slate-400: #9ca3af;
       --white: #ffffff;
-      --accent-orange: #f97316;
+      --accent-yellow: #f9a825;
       --accent-gold: #fbbf24;
       --success-green: #10b981;
+      --maroon: #7c2d3e;
+      --teal: #14b8a6;
+      --purple: #8b5cf6;
+      --aqua: #06b6d4;
     }
 
     * {
@@ -35,7 +39,7 @@
 
     body {
       font-family: 'DM Sans', sans-serif;
-      background: var(--navy-900);
+      background: var(--charcoal-900);
       color: var(--white);
       line-height: 1.6;
       overflow-x: hidden;
@@ -50,9 +54,10 @@
       height: 100%;
       z-index: -1;
       background: 
-        radial-gradient(ellipse at 20% 20%, rgba(45, 90, 135, 0.3) 0%, transparent 50%),
-        radial-gradient(ellipse at 80% 80%, rgba(26, 54, 93, 0.4) 0%, transparent 50%),
-        linear-gradient(180deg, var(--navy-900) 0%, var(--navy-800) 100%);
+        radial-gradient(ellipse at 10% 20%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
+        radial-gradient(ellipse at 90% 80%, rgba(6, 182, 212, 0.12) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 50%, rgba(20, 184, 166, 0.08) 0%, transparent 60%),
+        linear-gradient(180deg, var(--charcoal-900) 0%, var(--charcoal-800) 100%);
     }
 
     .bg-pattern::before {
@@ -79,7 +84,7 @@
       justify-content: space-between;
       align-items: center;
       z-index: 100;
-      background: linear-gradient(180deg, rgba(10, 22, 40, 0.95) 0%, transparent 100%);
+      background: linear-gradient(180deg, rgba(13, 13, 13, 0.95) 0%, transparent 100%);
       backdrop-filter: blur(10px);
     }
 
@@ -89,10 +94,11 @@
       font-weight: 700;
       color: var(--white);
       letter-spacing: -0.5px;
+      white-space: nowrap;
     }
 
     .logo span {
-      color: var(--accent-orange);
+      color: var(--accent-yellow);
     }
 
     nav a {
@@ -128,7 +134,7 @@
       padding: 0.5rem 1.25rem;
       border-radius: 100px;
       font-size: 0.85rem;
-      color: var(--accent-orange);
+      color: var(--accent-yellow);
       font-weight: 600;
       margin-bottom: 2rem;
       animation: fadeInUp 0.8s ease forwards;
@@ -139,7 +145,7 @@
       content: '';
       width: 8px;
       height: 8px;
-      background: var(--accent-orange);
+      background: var(--accent-yellow);
       border-radius: 50%;
       animation: pulse 2s infinite;
     }
@@ -161,7 +167,7 @@
     }
 
     .hero h1 .highlight {
-      background: linear-gradient(135deg, var(--accent-orange) 0%, var(--accent-gold) 100%);
+      background: linear-gradient(135deg, var(--accent-yellow) 0%, var(--accent-gold) 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -192,7 +198,10 @@
       font-family: 'Playfair Display', serif;
       font-size: 3.5rem;
       font-weight: 700;
-      color: var(--success-green);
+      background: linear-gradient(135deg, var(--teal) 0%, var(--aqua) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
       line-height: 1;
     }
 
@@ -254,7 +263,7 @@
       font-size: 0.8rem;
       text-transform: uppercase;
       letter-spacing: 3px;
-      color: var(--accent-orange);
+      color: var(--accent-yellow);
       font-weight: 600;
       margin-bottom: 1rem;
     }
@@ -302,14 +311,14 @@
 
     .drive-card:hover {
       background: rgba(255, 255, 255, 0.06);
-      border-color: rgba(249, 115, 22, 0.3);
+      border-color: rgba(249, 168, 37, 0.4);
       transform: translateY(-4px);
     }
 
     .drive-icon {
       width: 48px;
       height: 48px;
-      background: linear-gradient(135deg, var(--navy-600) 0%, var(--navy-700) 100%);
+      background: linear-gradient(135deg, var(--charcoal-600) 0%, var(--charcoal-700) 100%);
       border-radius: 12px;
       display: flex;
       align-items: center;
@@ -331,7 +340,7 @@
 
     /* Pricing Section */
     .pricing {
-      background: linear-gradient(180deg, transparent 0%, rgba(26, 54, 93, 0.2) 50%, transparent 100%);
+      background: linear-gradient(180deg, transparent 0%, rgba(139, 92, 246, 0.05) 30%, rgba(6, 182, 212, 0.05) 70%, transparent 100%);
       padding: 8rem 2rem;
     }
 
@@ -369,7 +378,7 @@
     }
 
     .comparison-table thead th {
-      background: var(--navy-700);
+      background: var(--charcoal-700);
       font-size: 0.85rem;
       font-weight: 600;
       text-transform: uppercase;
@@ -379,12 +388,13 @@
 
     .comparison-table thead th:nth-child(3),
     .comparison-table thead th:nth-child(4) {
-      background: linear-gradient(135deg, var(--accent-orange) 0%, #ea580c 100%);
+      background: linear-gradient(135deg, var(--accent-yellow) 0%, #d97706 100%);
+      color: var(--charcoal-900);
     }
 
     .comparison-table tbody tr:last-child td {
       border-bottom: none;
-      background: rgba(16, 185, 129, 0.1);
+      background: rgba(20, 184, 166, 0.1);
       font-weight: 700;
     }
 
@@ -397,7 +407,7 @@
     }
 
     .price-highlight {
-      color: var(--success-green);
+      color: var(--teal);
       font-size: 1.25rem;
       font-weight: 700;
     }
@@ -421,8 +431,8 @@
       gap: 3rem;
       margin-top: 3rem;
       padding: 2rem;
-      background: rgba(16, 185, 129, 0.1);
-      border: 1px solid rgba(16, 185, 129, 0.2);
+      background: rgba(20, 184, 166, 0.1);
+      border: 1px solid rgba(20, 184, 166, 0.2);
       border-radius: 16px;
     }
 
@@ -434,7 +444,10 @@
       font-family: 'Playfair Display', serif;
       font-size: 2.5rem;
       font-weight: 700;
-      color: var(--success-green);
+      background: linear-gradient(135deg, var(--teal) 0%, var(--aqua) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
     .savings-label {
@@ -467,7 +480,7 @@
     .feature-icon {
       width: 56px;
       height: 56px;
-      background: linear-gradient(135deg, var(--accent-orange) 0%, var(--accent-gold) 100%);
+      background: linear-gradient(135deg, var(--accent-yellow) 0%, #d97706 100%);
       border-radius: 14px;
       display: flex;
       align-items: center;
@@ -500,7 +513,7 @@
       top: 0;
       bottom: 0;
       width: 2px;
-      background: linear-gradient(180deg, var(--accent-orange) 0%, var(--navy-600) 100%);
+      background: linear-gradient(180deg, var(--accent-yellow) 0%, var(--charcoal-600) 100%);
       transform: translateX(-50%);
     }
 
@@ -535,9 +548,9 @@
     .timeline-dot {
       width: 20px;
       height: 20px;
-      background: var(--accent-orange);
+      background: var(--accent-yellow);
       border-radius: 50%;
-      border: 4px solid var(--navy-900);
+      border: 4px solid var(--charcoal-900);
       box-shadow: 0 0 0 4px rgba(249, 115, 22, 0.3);
     }
 
@@ -545,7 +558,7 @@
       font-size: 0.8rem;
       text-transform: uppercase;
       letter-spacing: 2px;
-      color: var(--accent-orange);
+      color: var(--accent-yellow);
       font-weight: 600;
       margin-bottom: 0.5rem;
     }
@@ -575,7 +588,7 @@
       transform: translateX(-50%);
       width: 600px;
       height: 600px;
-      background: radial-gradient(circle, rgba(249, 115, 22, 0.15) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(139, 92, 246, 0.12) 0%, rgba(6, 182, 212, 0.08) 40%, transparent 70%);
       pointer-events: none;
     }
 
@@ -598,21 +611,21 @@
       display: inline-flex;
       align-items: center;
       gap: 0.75rem;
-      background: linear-gradient(135deg, var(--accent-orange) 0%, #ea580c 100%);
-      color: var(--white);
+      background: linear-gradient(135deg, var(--accent-yellow) 0%, #d97706 100%);
+      color: var(--charcoal-900);
       font-size: 1rem;
       font-weight: 600;
       padding: 1rem 2.5rem;
       border-radius: 100px;
       text-decoration: none;
       transition: all 0.3s ease;
-      box-shadow: 0 10px 30px rgba(249, 115, 22, 0.3);
+      box-shadow: 0 10px 30px rgba(249, 168, 37, 0.3);
       position: relative;
     }
 
     .cta-button:hover {
       transform: translateY(-3px);
-      box-shadow: 0 15px 40px rgba(249, 115, 22, 0.4);
+      box-shadow: 0 15px 40px rgba(249, 168, 37, 0.4);
     }
 
     .cta-button::after {
@@ -706,22 +719,23 @@
   <div class="bg-pattern"></div>
 
   <nav>
-    <div class="logo"><span>X</span>-Team Collective</div>
+    <div class="logo"><span style="white-space: nowrap;"><span>X</span>-Team</span> Collective</div>
     <a href="#pricing">View Pricing</a>
   </nav>
 
   <section class="hero">
     <div class="hero-badge">Founding 10 Exclusive Offer</div>
-    <h1>Talent Optimization for <span class="highlight">X-Team Firms</span></h1>
-    <p class="hero-subtitle">Enterprise-grade behavioral science at wholesale rates. The PI HIRE Collective gives your team a competitive edge through data-driven leadership.</p>
+    <h1>Talent Optimization for <span class="highlight" style="white-space: nowrap;">X-Team</span> <span style="white-space: nowrap;">Firms</span></h1>
+    <p class="hero-subtitle" style="font-style: italic; margin-bottom: 1rem;">The <span class="highlight" style="white-space: nowrap;">X-Team</span> PI Collective</p>
+    <p class="hero-subtitle">Enterprise-grade behavioral science at wholesale rates. Give your team a competitive edge through data-driven talent optimization.</p>
     
     <div class="hero-stats">
       <div class="stat">
-        <div class="stat-value">76%</div>
+        <div class="stat-value">70-75%</div>
         <div class="stat-label">Software Savings</div>
       </div>
       <div class="stat">
-        <div class="stat-value">$5,420</div>
+        <div class="stat-value">~$5,000</div>
         <div class="stat-label">Saved Annually</div>
       </div>
       <div class="stat">
@@ -729,27 +743,27 @@
         <div class="stat-label">Support Turnaround</div>
       </div>
     </div>
-
-    <div class="scroll-indicator">Scroll</div>
   </section>
 
   <section id="opportunity">
     <div class="opportunity">
       <div class="opportunity-content">
         <div class="section-label">The Opportunity</div>
-        <h2 class="section-title">Optimize the Team You Already Have</h2>
-        <p class="section-text">The "Founding 10" model levels the playing field. By aggregating our headcount, we provide small firms with the same elite behavioral insights used by the Fortune 500 at a <strong>wholesale price point 76% below standard retail rates.</strong></p>
-        <p class="section-text">Using the Predictive Index, firms decode four core behavioral drives to identify Caution Areas, bridge communication gaps that cause turnover, and lead with data-driven confidence.</p>
+        <h2 class="section-title">Collective Buying Model for Predictive Index</h2>
+        <p class="section-text">AUDIA Consulting proposes a <strong>Collective Buying Model</strong> for <span class="highlight" style="white-space: nowrap;">X-Team</span> to access and deploy the <strong>Predictive Index (PI)</strong> software and service, complete with training and administrative support.</p>
+        <p class="section-text">The <strong>'Founding 10'</strong> model levels the playing field. By aggregating headcount, <span class="highlight" style="white-space: nowrap;">X-Team</span> will provide smaller partner firms with the same elite behavioral insights used by the Fortune 500 at a <strong>wholesale price point 70-75% below the standard retail rate.</strong></p>
       </div>
       
       <div class="drives-grid">
+        <div class="section-label" style="grid-column: 1 / -1; margin-bottom: 0;">The Goal: Optimize Your Existing Team</div>
+        <p class="section-text" style="grid-column: 1 / -1; margin-bottom: 1.5rem;">Through expert analysis of the four core behavioral drives, firms gain the data-driven confidence to identify preferred work and communication styles, anticipate interpersonal caution areas, and take targeted steps to <strong>increase individual and team performance while reducing turnover and costs.</strong></p>
         <div class="drive-card">
-          <div class="drive-icon">⚡</div>
+          <div class="drive-icon">💪</div>
           <h4>Dominance</h4>
           <p>Drive for control and influence over environment</p>
         </div>
         <div class="drive-card">
-          <div class="drive-icon">🎯</div>
+          <div class="drive-icon">📢</div>
           <h4>Extraversion</h4>
           <p>Drive for social interaction and connection</p>
         </div>
@@ -786,44 +800,44 @@
         </thead>
         <tbody>
           <tr>
-            <td>Annual Software Cost (Retail)</td>
-            <td class="price-old">$4,800</td>
-            <td>$1,130 <span class="price-note">PI HIRE module</span></td>
-            <td>$1,130 <span class="price-note">PI HIRE module</span></td>
+            <td>Annual Software Cost</td>
+            <td class="price-old">$4,800 (Retail)</td>
+            <td>$1,130</td>
+            <td>$1,130</td>
           </tr>
           <tr>
-            <td>Annual Training (Standalone)</td>
-            <td class="price-old">$3,750</td>
+            <td>Annual Training</td>
+            <td class="price-old">$3,750 (Standalone)</td>
             <td>$0 <span class="price-note">Covered by subscription</span></td>
             <td>$0 <span class="price-note">Covered by subscription</span></td>
           </tr>
           <tr>
             <td>Annual Managed Services*</td>
             <td>$0</td>
-            <td>$2,000 <span class="price-note">Upfront payment</span></td>
-            <td>$2,400 <span class="price-note">$200/month</span></td>
+            <td>$2,500 <span class="price-note">Annual installment</span></td>
+            <td>$3,000 <span class="price-note">$250/month</span></td>
           </tr>
           <tr>
-            <td>Total Annual Cost</td>
+            <td>Total Annual Investment</td>
             <td class="price-old">$8,550</td>
-            <td><span class="price-highlight">$3,130</span></td>
-            <td><span class="price-highlight">$3,530</span></td>
+            <td><span class="price-highlight">$3,630</span></td>
+            <td><span class="price-highlight">$4,130</span></td>
           </tr>
         </tbody>
       </table>
 
       <p style="text-align: center; color: var(--slate-400); font-size: 0.9rem; margin-top: 1.5rem;">
-        *Annual subscription paid upfront = <strong style="color: var(--white);">two months free</strong>
+        *Annual contract billed monthly at $250, or pay upfront for $2,500 and receive <strong style="color: var(--white);">two months free</strong>
       </p>
 
       <div class="savings-callout">
         <div class="savings-item">
-          <div class="savings-value">$5,420</div>
+          <div class="savings-value">~$5,000</div>
           <div class="savings-label">Annual Savings with Collective</div>
         </div>
         <div class="savings-item">
-          <div class="savings-value">63%</div>
-          <div class="savings-label">Total Cost Reduction</div>
+          <div class="savings-value">70-75%</div>
+          <div class="savings-label">Below Retail Rate</div>
         </div>
         <div class="savings-item">
           <div class="savings-value">Zero</div>
@@ -836,7 +850,7 @@
   <section id="features">
     <div class="section-label">Zero-Burden Model</div>
     <h2 class="section-title">What's Included</h2>
-    <p class="section-text">AUDIA's Managed Talent Insights Center removes the technical burden from principals. Designate a single PI Champion and we handle the rest.</p>
+    <p class="section-text">AUDIA's Managed Talent Insights Center removes the technical burden from principals. Designate a single PI Champion as the point of contact, and AUDIA handles the rest: expert profile analysis, data retrieval, and strategic support with a 24-hour turnaround. The $2,500 annual fee includes a Live Virtual Workshop for your entire staff and ongoing data governance.</p>
 
     <div class="features-grid">
       <div class="feature-card">
@@ -852,14 +866,14 @@
       <div class="feature-card">
         <div class="feature-icon">🔒</div>
         <h3>Data Governance</h3>
-        <p>AUDIA manages all technical setup, folder security, and report generation—your data stays protected.</p>
+        <p>AUDIA manages all technical setup, folder security, and report generation. Your data stays protected.</p>
       </div>
     </div>
   </section>
 
   <section id="optional">
-    <div class="section-label">A La Carte Services</div>
-    <h2 class="section-title">Optional Recruitment & Expertise</h2>
+    <div class="section-label">Hiring?</div>
+    <h2 class="section-title">Optional A La Carte Services</h2>
     <p class="section-text">For firms looking to leverage PI for hiring and development, AUDIA offers additional support:</p>
 
     <div class="features-grid">
@@ -872,6 +886,11 @@
         <div class="feature-icon">👥</div>
         <h3>Candidate Fit Overviews</h3>
         <p>Expert-led analysis of prospective finalists to ensure the right behavioral match.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🤝</div>
+        <h3>Team Building Workshops</h3>
+        <p>Highly engaging and interactive sessions to strengthen team dynamics.</p>
       </div>
       <div class="feature-card">
         <div class="feature-icon">💼</div>
@@ -902,7 +921,7 @@
         <div class="timeline-content">
           <div class="timeline-step">Step 2</div>
           <h4>Fulfillment</h4>
-          <p>Payment of Software Subscription + $2,000 Managed Service Fee</p>
+          <p>Payment of Software Subscription + $2,500 Managed Service Fee</p>
         </div>
         <div class="timeline-marker"><div class="timeline-dot"></div></div>
         <div style="width: 45%;"></div>
@@ -922,7 +941,7 @@
         <div class="timeline-content">
           <div class="timeline-step">Annually</div>
           <h4>Tune-Up Sessions</h4>
-          <p>Live Virtual sessions to review Caution Areas and maintain momentum</p>
+          <p>Live Virtual and recorded review and recap sessions to maintain momentum</p>
         </div>
         <div class="timeline-marker"><div class="timeline-dot"></div></div>
         <div style="width: 45%;"></div>
@@ -931,13 +950,13 @@
   </section>
 
   <section class="cta">
-    <h2 class="cta-title">Ready to Give X-Team a Competitive Edge?</h2>
-    <p class="cta-text">More than a discount—a shared language for navigating conflict, optimizing leadership, and defining behavioral success. Work smarter. Stay together longer. Lead with confidence.</p>
+    <h2 class="cta-title">Ready to Give Your <span class="highlight" style="white-space: nowrap;">X-Team</span> Firm a Competitive Edge?</h2>
+    <p class="cta-text">More than a discount. A shared language for navigating conflict, optimizing leadership, and defining behavioral success. Work smarter. Stay together longer. Lead with confidence.</p>
     <a href="/cdn-cgi/l/email-protection#a8cbc7c6dcc9cbdce8c9ddccc1c9cbc7c6dbddc4dcc1c6cf86cbc7c5" class="cta-button">Join the Founding 10</a>
   </section>
 
   <footer>
-    <p>X-Team Talent Optimization Project &middot; Powered by <a href="#">AUDIA Consulting</a> &middot; Predictive Index Partner</p>
+    <p><span style="color: var(--teal); white-space: nowrap;">X-Team</span> Talent Optimization Project &middot; Powered by <a href="#">AUDIA Consulting</a> &middot; Predictive Index Partner</p>
   </footer>
 
   <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
