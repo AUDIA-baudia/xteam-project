@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>X-Team Talent Optimization Project | PI Collective</title>
+  <title>X-Team Predictive Index Collective | PI Collective</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
@@ -20,6 +20,8 @@
       --white: #ffffff;
       --accent-yellow: #f9a825;
       --accent-gold: #fbbf24;
+      --electric-magenta: #E91E63;
+      --magenta-dark: #C2185B;
       --success-green: #10b981;
       --maroon: #7c2d3e;
       --teal: #14b8a6;
@@ -54,8 +56,8 @@
       height: 100%;
       z-index: -1;
       background: 
-        radial-gradient(ellipse at 10% 20%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
-        radial-gradient(ellipse at 90% 80%, rgba(6, 182, 212, 0.12) 0%, transparent 50%),
+        radial-gradient(ellipse at 10% 20%, rgba(233, 30, 99, 0.12) 0%, transparent 50%),
+        radial-gradient(ellipse at 90% 80%, rgba(249, 168, 37, 0.10) 0%, transparent 50%),
         radial-gradient(ellipse at 50% 50%, rgba(20, 184, 166, 0.08) 0%, transparent 60%),
         linear-gradient(180deg, var(--charcoal-900) 0%, var(--charcoal-800) 100%);
     }
@@ -79,38 +81,79 @@
       top: 0;
       left: 0;
       right: 0;
-      padding: 1.5rem 4rem;
+      padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
       z-index: 100;
-      background: linear-gradient(180deg, rgba(13, 13, 13, 0.95) 0%, transparent 100%);
+      background: linear-gradient(180deg, rgba(13, 13, 13, 0.98) 0%, rgba(13, 13, 13, 0.95) 100%);
       backdrop-filter: blur(10px);
     }
 
     .logo {
       font-family: 'Playfair Display', serif;
-      font-size: 1.5rem;
+      font-size: 1.25rem;
       font-weight: 700;
       color: var(--white);
       letter-spacing: -0.5px;
       white-space: nowrap;
     }
 
-    .logo span {
+    .logo .xteam {
       color: var(--accent-yellow);
+      white-space: nowrap;
     }
 
-    nav a {
+    .logo .pi {
+      color: var(--electric-magenta);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-links a {
       color: var(--slate-300);
       text-decoration: none;
-      font-size: 0.9rem;
+      font-size: 0.8rem;
       font-weight: 500;
-      transition: color 0.3s ease;
+      padding: 0.5rem 0.75rem;
+      border-radius: 100px;
+      transition: all 0.3s ease;
+      border: 1px solid transparent;
+      white-space: nowrap;
     }
 
-    nav a:hover {
+    .nav-links a:hover {
       color: var(--white);
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .nav-links a.nav-cta {
+      background: linear-gradient(135deg, var(--electric-magenta) 0%, var(--magenta-dark) 100%);
+      color: var(--white);
+      border: none;
+    }
+
+    .nav-links a.nav-cta:hover {
+      box-shadow: 0 4px 15px rgba(233, 30, 99, 0.4);
+      transform: translateY(-1px);
+    }
+
+    /* Mobile Navigation */
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--white);
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 0.5rem;
     }
 
     /* Hero Section */
@@ -129,12 +172,12 @@
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      background: rgba(249, 115, 22, 0.15);
-      border: 1px solid rgba(249, 115, 22, 0.3);
+      background: rgba(233, 30, 99, 0.15);
+      border: 1px solid rgba(233, 30, 99, 0.3);
       padding: 0.5rem 1.25rem;
       border-radius: 100px;
       font-size: 0.85rem;
-      color: var(--accent-yellow);
+      color: var(--electric-magenta);
       font-weight: 600;
       margin-bottom: 2rem;
       animation: fadeInUp 0.8s ease forwards;
@@ -145,7 +188,7 @@
       content: '';
       width: 8px;
       height: 8px;
-      background: var(--accent-yellow);
+      background: var(--electric-magenta);
       border-radius: 50%;
       animation: pulse 2s infinite;
     }
@@ -166,11 +209,13 @@
       opacity: 0;
     }
 
-    .hero h1 .highlight {
-      background: linear-gradient(135deg, var(--accent-yellow) 0%, var(--accent-gold) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+    .hero h1 .highlight-gold {
+      color: var(--accent-yellow);
+      white-space: nowrap;
+    }
+
+    .hero h1 .highlight-magenta {
+      color: var(--electric-magenta);
     }
 
     .hero-subtitle {
@@ -180,6 +225,15 @@
       margin-bottom: 3rem;
       animation: fadeInUp 0.8s ease 0.2s forwards;
       opacity: 0;
+    }
+
+    .hero-subtitle .highlight-gold {
+      color: var(--accent-yellow);
+      white-space: nowrap;
+    }
+
+    .hero-subtitle .highlight-magenta {
+      color: var(--electric-magenta);
     }
 
     .hero-stats {
@@ -260,27 +314,36 @@
     }
 
     .section-label {
-      font-size: 0.8rem;
+      font-size: 1rem;
       text-transform: uppercase;
       letter-spacing: 3px;
-      color: var(--accent-yellow);
+      color: var(--electric-magenta);
       font-weight: 600;
       margin-bottom: 1rem;
     }
 
     .section-title {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(2rem, 4vw, 3rem);
+      font-size: clamp(2.25rem, 4.5vw, 3.25rem);
       font-weight: 600;
       margin-bottom: 1.5rem;
       max-width: 700px;
     }
 
     .section-text {
-      font-size: 1.1rem;
+      font-size: 1.15rem;
       color: var(--slate-300);
       max-width: 700px;
       margin-bottom: 2rem;
+    }
+
+    .highlight-gold {
+      color: var(--accent-yellow);
+      white-space: nowrap;
+    }
+
+    .highlight-magenta {
+      color: var(--electric-magenta);
     }
 
     /* Problem/Solution Section */
@@ -310,9 +373,19 @@
     }
 
     .drive-card:hover {
-      background: rgba(255, 255, 255, 0.06);
-      border-color: rgba(249, 168, 37, 0.4);
+      background: rgba(233, 30, 99, 0.9);
+      border-color: var(--electric-magenta);
       transform: translateY(-4px);
+      box-shadow: 0 10px 40px rgba(233, 30, 99, 0.3);
+    }
+
+    .drive-card:hover .drive-icon {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .drive-card:hover h4,
+    .drive-card:hover p {
+      color: var(--white);
     }
 
     .drive-icon {
@@ -325,22 +398,25 @@
       justify-content: center;
       margin-bottom: 1rem;
       font-size: 1.25rem;
+      transition: all 0.3s ease;
     }
 
     .drive-card h4 {
       font-size: 1.1rem;
       font-weight: 600;
       margin-bottom: 0.5rem;
+      transition: color 0.3s ease;
     }
 
     .drive-card p {
       font-size: 0.9rem;
       color: var(--slate-400);
+      transition: color 0.3s ease;
     }
 
     /* Pricing Section */
     .pricing {
-      background: linear-gradient(180deg, transparent 0%, rgba(139, 92, 246, 0.05) 30%, rgba(6, 182, 212, 0.05) 70%, transparent 100%);
+      background: linear-gradient(180deg, transparent 0%, rgba(233, 30, 99, 0.05) 30%, rgba(249, 168, 37, 0.05) 70%, transparent 100%);
       padding: 8rem 2rem;
     }
 
@@ -388,8 +464,8 @@
 
     .comparison-table thead th:nth-child(3),
     .comparison-table thead th:nth-child(4) {
-      background: linear-gradient(135deg, var(--accent-yellow) 0%, #d97706 100%);
-      color: var(--charcoal-900);
+      background: linear-gradient(135deg, var(--electric-magenta) 0%, var(--magenta-dark) 100%);
+      color: var(--white);
     }
 
     .comparison-table tbody tr:last-child td {
@@ -472,9 +548,19 @@
     }
 
     .feature-card:hover {
-      background: rgba(255, 255, 255, 0.05);
+      background: rgba(233, 30, 99, 0.9);
+      border-color: var(--electric-magenta);
       transform: translateY(-8px);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 20px 50px rgba(233, 30, 99, 0.35);
+    }
+
+    .feature-card:hover .feature-icon {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .feature-card:hover h3,
+    .feature-card:hover p {
+      color: var(--white);
     }
 
     .feature-icon {
@@ -487,90 +573,444 @@
       justify-content: center;
       font-size: 1.5rem;
       margin-bottom: 1.5rem;
+      transition: all 0.4s ease;
     }
 
     .feature-card h3 {
       font-size: 1.25rem;
       font-weight: 600;
       margin-bottom: 0.75rem;
+      transition: color 0.4s ease;
     }
 
     .feature-card p {
       color: var(--slate-400);
       font-size: 0.95rem;
+      transition: color 0.4s ease;
     }
 
-    /* Timeline Section */
-    .timeline {
+    /* Horizontal Timeline Section */
+    .timeline-section {
+      padding: 6rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .timeline-horizontal {
+      display: flex;
+      justify-content: space-between;
       position: relative;
-      margin-top: 3rem;
+      margin-top: 4rem;
+      padding: 0 1rem;
     }
 
-    .timeline::before {
+    .timeline-horizontal::before {
       content: '';
       position: absolute;
-      left: 50%;
-      top: 0;
-      bottom: 0;
-      width: 2px;
-      background: linear-gradient(180deg, var(--accent-yellow) 0%, var(--charcoal-600) 100%);
-      transform: translateX(-50%);
-    }
-
-    .timeline-item {
-      display: flex;
-      align-items: center;
-      margin-bottom: 3rem;
-    }
-
-    .timeline-item:nth-child(odd) {
-      flex-direction: row-reverse;
-    }
-
-    .timeline-content {
-      width: 45%;
-      padding: 1.5rem 2rem;
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 16px;
-    }
-
-    .timeline-item:nth-child(odd) .timeline-content {
-      text-align: right;
-    }
-
-    .timeline-marker {
-      width: 10%;
-      display: flex;
-      justify-content: center;
-    }
-
-    .timeline-dot {
-      width: 20px;
-      height: 20px;
-      background: var(--accent-yellow);
-      border-radius: 50%;
-      border: 4px solid var(--charcoal-900);
-      box-shadow: 0 0 0 4px rgba(249, 115, 22, 0.3);
+      top: 40px;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--electric-magenta) 0%, var(--accent-yellow) 50%, var(--teal) 100%);
+      border-radius: 2px;
     }
 
     .timeline-step {
-      font-size: 0.8rem;
+      flex: 1;
+      text-align: center;
+      position: relative;
+      padding: 0 1rem;
+    }
+
+    .timeline-dot {
+      width: 24px;
+      height: 24px;
+      background: var(--electric-magenta);
+      border-radius: 50%;
+      margin: 0 auto 1.5rem;
+      position: relative;
+      z-index: 2;
+      border: 4px solid var(--charcoal-900);
+      box-shadow: 0 0 0 4px rgba(233, 30, 99, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .timeline-step:hover .timeline-dot {
+      transform: scale(1.2);
+      box-shadow: 0 0 0 6px rgba(233, 30, 99, 0.4), 0 0 20px rgba(233, 30, 99, 0.5);
+    }
+
+    .timeline-step:nth-child(2) .timeline-dot {
+      background: var(--accent-yellow);
+      box-shadow: 0 0 0 4px rgba(249, 168, 37, 0.3);
+    }
+
+    .timeline-step:nth-child(2):hover .timeline-dot {
+      box-shadow: 0 0 0 6px rgba(249, 168, 37, 0.4), 0 0 20px rgba(249, 168, 37, 0.5);
+    }
+
+    .timeline-step:nth-child(3) .timeline-dot {
+      background: var(--teal);
+      box-shadow: 0 0 0 4px rgba(20, 184, 166, 0.3);
+    }
+
+    .timeline-step:nth-child(3):hover .timeline-dot {
+      box-shadow: 0 0 0 6px rgba(20, 184, 166, 0.4), 0 0 20px rgba(20, 184, 166, 0.5);
+    }
+
+    .timeline-step:nth-child(4) .timeline-dot {
+      background: var(--aqua);
+      box-shadow: 0 0 0 4px rgba(6, 182, 212, 0.3);
+    }
+
+    .timeline-step:nth-child(4):hover .timeline-dot {
+      box-shadow: 0 0 0 6px rgba(6, 182, 212, 0.4), 0 0 20px rgba(6, 182, 212, 0.5);
+    }
+
+    .timeline-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 1.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .timeline-step:hover .timeline-card {
+      background: rgba(255, 255, 255, 0.06);
+      transform: translateY(-4px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .timeline-label {
+      font-size: 0.75rem;
       text-transform: uppercase;
       letter-spacing: 2px;
-      color: var(--accent-yellow);
+      color: var(--electric-magenta);
       font-weight: 600;
       margin-bottom: 0.5rem;
     }
 
-    .timeline-content h4 {
+    .timeline-step:nth-child(2) .timeline-label {
+      color: var(--accent-yellow);
+    }
+
+    .timeline-step:nth-child(3) .timeline-label {
+      color: var(--teal);
+    }
+
+    .timeline-step:nth-child(4) .timeline-label {
+      color: var(--aqua);
+    }
+
+    .timeline-card h4 {
       font-size: 1.1rem;
       margin-bottom: 0.5rem;
     }
 
-    .timeline-content p {
+    .timeline-card p {
+      font-size: 0.85rem;
+      color: var(--slate-400);
+      line-height: 1.5;
+    }
+
+    /* Sign Up Section */
+    .signup-section {
+      padding: 6rem 2rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .signup-container {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 24px;
+      padding: 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .signup-container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent-yellow) 0%, var(--electric-magenta) 100%);
+    }
+
+    .signup-header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .signup-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .signup-header p {
+      color: var(--slate-300);
+      font-size: 1rem;
+    }
+
+    .signup-form {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .form-group.full-width {
+      grid-column: 1 / -1;
+    }
+
+    .form-group label {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--slate-200);
+    }
+
+    .form-group label .required {
+      color: var(--electric-magenta);
+      margin-left: 2px;
+    }
+
+    .form-group input,
+    .form-group select {
+      padding: 0.875rem 1rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      color: var(--white);
+      font-size: 1rem;
+      font-family: inherit;
+      transition: all 0.3s ease;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: var(--electric-magenta);
+      box-shadow: 0 0 0 3px rgba(233, 30, 99, 0.15);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .form-group input::placeholder {
+      color: var(--slate-400);
+    }
+
+    .consent-group {
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-start;
+      padding: 1rem;
+      background: rgba(255, 255, 255, 0.02);
+      border-radius: 10px;
+      margin-top: 0.5rem;
+    }
+
+    .consent-group input[type="checkbox"] {
+      width: 20px;
+      height: 20px;
+      margin-top: 2px;
+      accent-color: var(--electric-magenta);
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    .consent-group label {
+      font-size: 0.85rem;
+      color: var(--slate-300);
+      line-height: 1.5;
+      cursor: pointer;
+    }
+
+    .submit-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      background: linear-gradient(135deg, var(--electric-magenta) 0%, var(--magenta-dark) 100%);
+      color: var(--white);
+      font-size: 1rem;
+      font-weight: 600;
+      padding: 1rem 2.5rem;
+      border: none;
+      border-radius: 100px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 30px rgba(233, 30, 99, 0.3);
+      margin-top: 1rem;
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px rgba(233, 30, 99, 0.4);
+    }
+
+    .submit-btn:active {
+      transform: translateY(-1px);
+    }
+
+    .submit-btn::after {
+      content: '→';
+      transition: transform 0.3s ease;
+    }
+
+    .submit-btn:hover::after {
+      transform: translateX(4px);
+    }
+
+    /* QR Code Section - Prominent Standalone */
+    .qr-section-prominent {
+      padding: 4rem 2rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .qr-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 3rem;
+      padding: 3rem;
+      background: linear-gradient(135deg, rgba(233, 30, 99, 0.08) 0%, rgba(249, 168, 37, 0.08) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 24px;
+    }
+
+    .qr-code-large {
+      width: 180px;
+      height: 180px;
+      background: var(--white);
+      border-radius: 16px;
+      padding: 12px;
+      flex-shrink: 0;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .qr-code-large img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .qr-text-large {
+      text-align: left;
+    }
+
+    .qr-text-large h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.75rem;
+      margin-bottom: 0.75rem;
+      color: var(--white);
+    }
+
+    .qr-text-large p {
+      font-size: 1.1rem;
+      color: var(--slate-300);
+      line-height: 1.6;
+      max-width: 400px;
+    }
+
+    /* Old QR styles - keep for backwards compatibility */
+    .qr-section {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 3rem;
+      padding: 2rem;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 16px;
+    }
+
+    .qr-code {
+      width: 120px;
+      height: 120px;
+      background: var(--white);
+      border-radius: 12px;
+      padding: 8px;
+      flex-shrink: 0;
+    }
+
+    .qr-code img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .qr-text {
+      text-align: left;
+    }
+
+    .qr-text h4 {
+      font-size: 1rem;
+      margin-bottom: 0.25rem;
+      color: var(--white);
+    }
+
+    .qr-text p {
       font-size: 0.9rem;
       color: var(--slate-400);
+    }
+
+    /* Over 50 Section */
+    .over50-section {
+      padding: 6rem 2rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .over50-container {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 24px;
+      padding: 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .over50-container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--teal) 0%, var(--aqua) 100%);
+    }
+
+    .over50-header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .over50-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .over50-header p {
+      color: var(--slate-300);
+      font-size: 1rem;
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.6;
     }
 
     /* CTA Section */
@@ -588,7 +1028,7 @@
       transform: translateX(-50%);
       width: 600px;
       height: 600px;
-      background: radial-gradient(circle, rgba(139, 92, 246, 0.12) 0%, rgba(6, 182, 212, 0.08) 40%, transparent 70%);
+      background: radial-gradient(circle, rgba(233, 30, 99, 0.12) 0%, rgba(249, 168, 37, 0.08) 40%, transparent 70%);
       pointer-events: none;
     }
 
@@ -611,21 +1051,21 @@
       display: inline-flex;
       align-items: center;
       gap: 0.75rem;
-      background: linear-gradient(135deg, var(--accent-yellow) 0%, #d97706 100%);
-      color: var(--charcoal-900);
+      background: linear-gradient(135deg, var(--electric-magenta) 0%, var(--magenta-dark) 100%);
+      color: var(--white);
       font-size: 1rem;
       font-weight: 600;
       padding: 1rem 2.5rem;
       border-radius: 100px;
       text-decoration: none;
       transition: all 0.3s ease;
-      box-shadow: 0 10px 30px rgba(249, 168, 37, 0.3);
+      box-shadow: 0 10px 30px rgba(233, 30, 99, 0.3);
       position: relative;
     }
 
     .cta-button:hover {
       transform: translateY(-3px);
-      box-shadow: 0 15px 40px rgba(249, 168, 37, 0.4);
+      box-shadow: 0 15px 40px rgba(233, 30, 99, 0.4);
     }
 
     .cta-button::after {
@@ -655,10 +1095,81 @@
       color: var(--white);
     }
 
+    footer .footer-brand .xteam {
+      color: var(--accent-yellow);
+      white-space: nowrap;
+    }
+
+    footer .footer-brand .pi {
+      color: var(--electric-magenta);
+    }
+
     /* Responsive */
+    @media (max-width: 1024px) {
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(13, 13, 13, 0.98);
+        flex-direction: column;
+        padding: 1rem;
+        gap: 0.5rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .nav-links a {
+        width: 100%;
+        text-align: center;
+        padding: 0.75rem 1rem;
+      }
+
+      .nav-toggle {
+        display: block;
+      }
+
+      .timeline-horizontal {
+        flex-direction: column;
+        gap: 2rem;
+        padding: 0;
+      }
+
+      .timeline-horizontal::before {
+        top: 0;
+        bottom: 0;
+        left: 40px;
+        right: auto;
+        width: 3px;
+        height: auto;
+        background: linear-gradient(180deg, var(--electric-magenta) 0%, var(--accent-yellow) 33%, var(--teal) 66%, var(--aqua) 100%);
+      }
+
+      .timeline-step {
+        display: flex;
+        text-align: left;
+        padding: 0;
+        padding-left: 80px;
+      }
+
+      .timeline-dot {
+        position: absolute;
+        left: 28px;
+        margin: 0;
+      }
+
+      .timeline-card {
+        width: 100%;
+      }
+    }
+
     @media (max-width: 968px) {
       nav {
-        padding: 1rem 2rem;
+        padding: 1rem 1.5rem;
       }
 
       .opportunity {
@@ -688,29 +1199,52 @@
         padding: 1rem 0.75rem;
       }
 
-      .timeline::before {
-        left: 20px;
-      }
-
-      .timeline-item,
-      .timeline-item:nth-child(odd) {
-        flex-direction: row;
-      }
-
-      .timeline-marker {
-        width: auto;
-        margin-right: 1rem;
-      }
-
-      .timeline-content,
-      .timeline-item:nth-child(odd) .timeline-content {
-        width: 100%;
-        text-align: left;
-      }
-
       .savings-callout {
         flex-direction: column;
         gap: 1.5rem;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .signup-container,
+      .over50-container {
+        padding: 2rem 1.5rem;
+      }
+
+      .qr-section {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .qr-text {
+        text-align: center;
+      }
+
+      .qr-container {
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem;
+        gap: 2rem;
+      }
+
+      .qr-text-large {
+        text-align: center;
+      }
+
+      .qr-text-large p {
+        max-width: 100%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .logo {
+        font-size: 1rem;
+      }
+
+      .drives-grid {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -719,14 +1253,25 @@
   <div class="bg-pattern"></div>
 
   <nav>
-    <div class="logo"><span style="white-space: nowrap;"><span>X</span>-Team</span> Collective</div>
-    <a href="#pricing">View Pricing</a>
+    <div class="logo">
+      <span class="xteam">X-Team</span> <span class="pi">Predictive Index</span> Collective
+    </div>
+    <button class="nav-toggle" onclick="toggleNav()" aria-label="Toggle navigation">☰</button>
+    <div class="nav-links" id="navLinks">
+      <a href="#opportunity">The Opportunity</a>
+      <a href="#pricing">The Financial Case</a>
+      <a href="#features">What's Included</a>
+      <a href="#optional">Optional Services</a>
+      <a href="#timeline">Roadmap</a>
+      <a href="#signup" class="nav-cta">Sign Up</a>
+      <a href="#over50">Over 50 Employees</a>
+    </div>
   </nav>
 
   <section class="hero">
-    <div class="hero-badge">Founding 10 Exclusive Offer</div>
-    <h1>Talent Optimization for <span class="highlight" style="white-space: nowrap;">X-Team</span> <span style="white-space: nowrap;">Firms</span></h1>
-    <p class="hero-subtitle" style="font-style: italic; margin-bottom: 1rem;">The <span class="highlight" style="white-space: nowrap;">X-Team</span> PI Collective</p>
+    <div class="hero-badge">X-Team PI Collective Exclusive Offer</div>
+    <h1>Talent Optimization for <span class="highlight-gold">X-Team</span> Firms</h1>
+    <p class="hero-subtitle" style="font-style: italic; margin-bottom: 1rem;">The <span class="highlight-gold">X-Team</span> <span class="highlight-magenta">Predictive Index</span> Collective</p>
     <p class="hero-subtitle">Enterprise-grade behavioral science at wholesale rates. Give your team a competitive edge through data-driven talent optimization.</p>
     
     <div class="hero-stats">
@@ -749,9 +1294,9 @@
     <div class="opportunity">
       <div class="opportunity-content">
         <div class="section-label">The Opportunity</div>
-        <h2 class="section-title">Collective Buying Model for Predictive Index</h2>
-        <p class="section-text">AUDIA Consulting proposes a <strong>Collective Buying Model</strong> for <span class="highlight" style="white-space: nowrap;">X-Team</span> to access and deploy the <strong>Predictive Index (PI)</strong> software and service, complete with training and administrative support.</p>
-        <p class="section-text">The <strong>'Founding 10'</strong> model levels the playing field. By aggregating headcount, <span class="highlight" style="white-space: nowrap;">X-Team</span> will provide smaller partner firms with the same elite behavioral insights used by the Fortune 500 at a <strong>wholesale price point 70-75% below the standard retail rate.</strong></p>
+        <h2 class="section-title">Collective Buying Model for <span class="highlight-magenta">Predictive Index</span></h2>
+        <p class="section-text">AUDIA Consulting proposes a <strong>Collective Buying Model</strong> for <span class="highlight-gold">X-Team</span> to access and deploy the <strong><span class="highlight-magenta">Predictive Index</span> (PI)</strong> software and service, complete with training and administrative support.</p>
+        <p class="section-text">The <strong>'Founding Firms'</strong> model levels the playing field. By aggregating headcount from 12–15 founding firms, <span class="highlight-gold">X-Team</span> will provide smaller partner firms with the same elite behavioral insights used by the Fortune 500 at a <strong>wholesale price point 70-75% below the standard retail rate.</strong></p>
       </div>
       
       <div class="drives-grid">
@@ -793,33 +1338,33 @@
         <thead>
           <tr>
             <th>Item</th>
-            <th>Going Alone</th>
-            <th>Annual Subscription</th>
-            <th>Monthly Subscription</th>
+            <th>Individual Business<br><span style="font-weight: 400; font-size: 0.75rem; text-transform: none; letter-spacing: 0;">Retail Rates</span></th>
+            <th>X-Team PI Collective<br><span style="font-weight: 400; font-size: 0.75rem; text-transform: none; letter-spacing: 0;">Annual Billing</span></th>
+            <th>X-Team PI Collective<br><span style="font-weight: 400; font-size: 0.75rem; text-transform: none; letter-spacing: 0;">Monthly Billing</span></th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td>Annual Software Cost</td>
-            <td class="price-old">$4,800 (Retail)</td>
+            <td>$4,800 (Retail)</td>
             <td>$1,130</td>
             <td>$1,130</td>
           </tr>
           <tr>
             <td>Annual Training</td>
-            <td class="price-old">$3,750 (Standalone)</td>
+            <td>$3,750 (Standalone)</td>
             <td>$0 <span class="price-note">Covered by subscription</span></td>
             <td>$0 <span class="price-note">Covered by subscription</span></td>
           </tr>
           <tr>
             <td>Annual Managed Services*</td>
-            <td>$0</td>
+            <td>Custom</td>
             <td>$2,500 <span class="price-note">Annual installment</span></td>
             <td>$3,000 <span class="price-note">$250/month</span></td>
           </tr>
           <tr>
             <td>Total Annual Investment</td>
-            <td class="price-old">$8,550</td>
+            <td>$8,550+</td>
             <td><span class="price-highlight">$3,630</span></td>
             <td><span class="price-highlight">$4,130</span></td>
           </tr>
@@ -837,11 +1382,15 @@
         </div>
         <div class="savings-item">
           <div class="savings-value">70-75%</div>
-          <div class="savings-label">Below Retail Rate</div>
+          <div class="savings-label">Below Retail Software Rate</div>
         </div>
         <div class="savings-item">
           <div class="savings-value">Zero</div>
           <div class="savings-label">Technical Burden on You</div>
+        </div>
+        <div class="savings-item">
+          <div class="savings-value">Plus</div>
+          <div class="savings-label">Dedicated Technical Advisory<br>and Administration</div>
         </div>
       </div>
     </div>
@@ -876,7 +1425,7 @@
     <h2 class="section-title">Optional A La Carte Services</h2>
     <p class="section-text">For firms looking to leverage PI for hiring and development, AUDIA offers additional support:</p>
 
-    <div class="features-grid">
+    <div class="features-grid" style="grid-template-columns: repeat(4, 1fr);">
       <div class="feature-card">
         <div class="feature-icon">🎯</div>
         <h3>Job Targets</h3>
@@ -900,66 +1449,229 @@
     </div>
   </section>
 
-  <section id="timeline">
+  <section id="timeline" class="timeline-section">
     <div style="text-align: center; margin-bottom: 3rem;">
       <div class="section-label">Implementation</div>
       <h2 class="section-title" style="margin: 0 auto;">Roadmap to Success</h2>
     </div>
 
-    <div class="timeline">
-      <div class="timeline-item">
-        <div class="timeline-content">
-          <div class="timeline-step">Step 1</div>
+    <div class="timeline-horizontal">
+      <div class="timeline-step">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <div class="timeline-label">Step 1</div>
           <h4>Commitment</h4>
-          <p>Founding 10 firms sign the MOU during the Commitment Window</p>
+          <p>12–15 Founding Firms sign the MOU during the Commitment Window</p>
         </div>
-        <div class="timeline-marker"><div class="timeline-dot"></div></div>
-        <div style="width: 45%;"></div>
       </div>
       
-      <div class="timeline-item">
-        <div class="timeline-content">
-          <div class="timeline-step">Step 2</div>
+      <div class="timeline-step">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <div class="timeline-label">Step 2</div>
           <h4>Fulfillment</h4>
           <p>Payment of Software Subscription + $2,500 Managed Service Fee</p>
         </div>
-        <div class="timeline-marker"><div class="timeline-dot"></div></div>
-        <div style="width: 45%;"></div>
       </div>
       
-      <div class="timeline-item">
-        <div class="timeline-content">
-          <div class="timeline-step">Month 1</div>
+      <div class="timeline-step">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <div class="timeline-label">Month 1</div>
           <h4>Launch Workshop</h4>
           <p>Live Virtual Workshop for all staff to kick off cultural alignment</p>
         </div>
-        <div class="timeline-marker"><div class="timeline-dot"></div></div>
-        <div style="width: 45%;"></div>
       </div>
       
-      <div class="timeline-item">
-        <div class="timeline-content">
-          <div class="timeline-step">Annually</div>
+      <div class="timeline-step">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <div class="timeline-label">Annually</div>
           <h4>Tune-Up Sessions</h4>
           <p>Live Virtual and recorded review and recap sessions to maintain momentum</p>
         </div>
-        <div class="timeline-marker"><div class="timeline-dot"></div></div>
-        <div style="width: 45%;"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="signup" class="signup-section">
+    <div class="signup-container">
+      <div class="signup-header">
+        <div class="section-label">Get Started</div>
+        <h2>Join the <span class="highlight-gold">X-Team</span> <span class="highlight-magenta">PI</span> Collective</h2>
+        <p>Fill out the form below and a member of our team will reach out to discuss next steps and answer any questions.</p>
+      </div>
+
+      <form class="signup-form" action="https://formspree.io/f/mpqjzgvl" method="POST">
+        <!-- Hidden field to identify form type -->
+        <input type="hidden" name="form_type" value="X-Team PI Interest Form">
+        
+        <div class="form-row">
+          <div class="form-group">
+            <label for="company_name">Company Name <span class="required">*</span></label>
+            <input type="text" id="company_name" name="company_name" required placeholder="Your company name">
+          </div>
+          <div class="form-group">
+            <label for="company_website">Company Website URL <span class="required">*</span></label>
+            <input type="url" id="company_website" name="company_website" required placeholder="https://yourcompany.com">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="headcount">Organization Headcount <span class="required">*</span></label>
+            <input type="number" id="headcount" name="headcount" required min="1" max="50" placeholder="Number of employees (up to 50)">
+          </div>
+          <div class="form-group">
+            <label for="contact_name">Primary Contact Name <span class="required">*</span></label>
+            <input type="text" id="contact_name" name="contact_name" required placeholder="Full name">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="contact_title">Primary Contact Title <span class="required">*</span></label>
+            <input type="text" id="contact_title" name="contact_title" required placeholder="Job title">
+          </div>
+          <div class="form-group">
+            <label for="contact_email">Primary Contact Email <span class="required">*</span></label>
+            <input type="email" id="contact_email" name="contact_email" required placeholder="email@company.com">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="phone_office">Phone Number (Office) <span class="required">*</span></label>
+            <input type="tel" id="phone_office" name="phone_office" required placeholder="(555) 123-4567">
+          </div>
+          <div class="form-group">
+            <label for="phone_mobile">Phone Number (Mobile) <span class="required">*</span></label>
+            <input type="tel" id="phone_mobile" name="phone_mobile" required placeholder="(555) 987-6543">
+          </div>
+        </div>
+
+        <div class="form-group full-width">
+          <div class="consent-group">
+            <input type="checkbox" id="consent" name="consent" required>
+            <label for="consent">I agree to receive communications from AUDIA Consulting via email, phone, or text message regarding this inquiry and related services. Message and data rates may apply. You may opt out at any time by replying STOP or contacting us directly. <span class="required">*</span></label>
+          </div>
+        </div>
+
+        <div class="form-group full-width" style="text-align: center;">
+          <button type="submit" class="submit-btn">Submit Interest Form</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <section id="over50" class="over50-section">
+    <div class="over50-container">
+      <div class="over50-header">
+        <div class="section-label" style="color: var(--teal);">Enterprise Solutions</div>
+        <h2>Over 50 Employees? Not a Problem.</h2>
+        <p>The <span class="highlight-gold">X-Team</span> <span class="highlight-magenta">PI</span> Collective was specifically designed for organizations with up to 50 employees. If you have more than 50 employees, we have value packages tailored for you that deliver just as much impact.</p>
+        <p style="margin-top: 1rem;">Fill out this form, and we'll set up a quick call to discuss your <span class="highlight-magenta">Predictive Index</span> options.</p>
+      </div>
+
+      <form class="signup-form" action="https://formspree.io/f/mpqjzgvl" method="POST">
+        <!-- Hidden field to identify form type -->
+        <input type="hidden" name="form_type" value="Over 50 Employees Inquiry">
+        
+        <div class="form-row">
+          <div class="form-group">
+            <label for="over50_company_name">Company Name <span class="required">*</span></label>
+            <input type="text" id="over50_company_name" name="company_name" required placeholder="Your company name">
+          </div>
+          <div class="form-group">
+            <label for="over50_company_website">Company Website URL <span class="required">*</span></label>
+            <input type="url" id="over50_company_website" name="company_website" required placeholder="https://yourcompany.com">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="over50_headcount">Organization Headcount <span class="required">*</span></label>
+            <input type="number" id="over50_headcount" name="headcount" required min="51" placeholder="Number of employees">
+          </div>
+          <div class="form-group">
+            <label for="over50_contact_name">Primary Contact Name <span class="required">*</span></label>
+            <input type="text" id="over50_contact_name" name="contact_name" required placeholder="Full name">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="over50_contact_title">Primary Contact Title <span class="required">*</span></label>
+            <input type="text" id="over50_contact_title" name="contact_title" required placeholder="Job title">
+          </div>
+          <div class="form-group">
+            <label for="over50_contact_email">Primary Contact Email <span class="required">*</span></label>
+            <input type="email" id="over50_contact_email" name="contact_email" required placeholder="email@company.com">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="over50_phone_office">Phone Number (Office) <span class="required">*</span></label>
+            <input type="tel" id="over50_phone_office" name="phone_office" required placeholder="(555) 123-4567">
+          </div>
+          <div class="form-group">
+            <label for="over50_phone_mobile">Phone Number (Mobile) <span class="required">*</span></label>
+            <input type="tel" id="over50_phone_mobile" name="phone_mobile" required placeholder="(555) 987-6543">
+          </div>
+        </div>
+
+        <div class="form-group full-width">
+          <div class="consent-group">
+            <input type="checkbox" id="over50_consent" name="consent" required>
+            <label for="over50_consent">I agree to receive communications from AUDIA Consulting via email, phone, or text message regarding this inquiry and related services. Message and data rates may apply. You may opt out at any time by replying STOP or contacting us directly. <span class="required">*</span></label>
+          </div>
+        </div>
+
+        <div class="form-group full-width" style="text-align: center;">
+          <button type="submit" class="submit-btn" style="background: linear-gradient(135deg, var(--teal) 0%, #0d9488 100%); box-shadow: 0 10px 30px rgba(20, 184, 166, 0.3);">Request a Call</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <section class="qr-section-prominent">
+    <div class="qr-container">
+      <div class="qr-code-large">
+        <!-- QR Code generated for https://audia-baudia.github.io/xteam-project/ -->
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://audia-baudia.github.io/xteam-project/&bgcolor=ffffff&color=0d0d0d&margin=0" alt="QR Code to save this page">
+      </div>
+      <div class="qr-text-large">
+        <h3>Save This Page for Later</h3>
+        <p>Scan this QR code to save this page to your phone, revisit anytime, or share with colleagues and decision-makers on your team.</p>
       </div>
     </div>
   </section>
 
   <section class="cta">
-    <h2 class="cta-title">Ready to Give Your <span class="highlight" style="white-space: nowrap;">X-Team</span> Firm a Competitive Edge?</h2>
+    <h2 class="cta-title">Ready to Give Your <span class="highlight-gold">X-Team</span> Firm a Competitive Edge?</h2>
     <p class="cta-text">More than a discount. A shared language for navigating conflict, optimizing leadership, and defining behavioral success. Work smarter. Stay together longer. Lead with confidence.</p>
-    <a href="/cdn-cgi/l/email-protection#a8cbc7c6dcc9cbdce8c9ddccc1c9cbc7c6dbddc4dcc1c6cf86cbc7c5" class="cta-button">Join the Founding 10</a>
+    <a href="#signup" class="cta-button">Become a Founding Firm</a>
   </section>
 
   <footer>
-    <p><span style="color: var(--teal); white-space: nowrap;">X-Team</span> Talent Optimization Project &middot; Powered by <a href="#">AUDIA Consulting</a> &middot; Predictive Index Partner</p>
+    <p class="footer-brand"><span class="xteam">X-Team</span> <span class="pi">Predictive Index</span> Collective &middot; Powered by <a href="https://goaudia.com">AUDIA Consulting</a> &middot; Predictive Index Partner</p>
   </footer>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  <script>
+    // Mobile navigation toggle
+    function toggleNav() {
+      const navLinks = document.getElementById('navLinks');
+      navLinks.classList.toggle('active');
+    }
+
+    // Close mobile nav when clicking a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.getElementById('navLinks').classList.remove('active');
+      });
+    });
+
     // Intersection Observer for scroll animations
     const observerOptions = {
       threshold: 0.1,
@@ -983,8 +1695,27 @@
       observer.observe(section);
     });
 
-    // Observe feature cards
-    document.querySelectorAll('.feature-card, .drive-card, .timeline-item').forEach((card, index) => {
+    // Observe feature cards, drive cards, and timeline steps
+    document.querySelectorAll('.feature-card, .drive-card, .timeline-step').forEach((card, index) => {
       card.style.opacity = '0';
       card.style.transform = 'translateY(20px)';
-      card.s
+      card.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s, background 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease`;
+      observer.observe(card);
+    });
+
+    // Smooth scroll for anchor links (backup for browsers without CSS smooth scroll)
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
